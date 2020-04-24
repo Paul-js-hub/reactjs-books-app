@@ -21,8 +21,12 @@ class Books extends Component {
                 title: 'HTML5'
             },
             {
-                id: 4,
+                id: 5,
                 title: 'Bootstrap'
+            },
+            {
+                id: 6,
+                title: 'Java'
             }
         ],
         book:{},
