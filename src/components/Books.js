@@ -1,36 +1,21 @@
 import React, { Component } from 'react';
 import Book from './Book';
+import axios from 'axios';
 
 class Books extends Component {
     state = {
-        books: [
-            {
-                id: 1,
-                title: 'React Tutorials'
-            },
-            {
-                id: 2,
-                title: 'JavaScript Tutorials for beginners'
-            },
-            {
-                id: 3,
-                title: 'CSS3'
-            },
-            {
-                id: 4,
-                title: 'HTML5'
-            },
-            {
-                id: 5,
-                title: 'Bootstrap'
-            },
-            {
-                id: 6,
-                title: 'Java'
-            }
-        ],
-        book:{},
+        books: [],
+        book:{}
     }
+
+    componentDidMount = () =>{
+        axios.get('http://localhost:50/api/books')
+        .then(res => {
+            //console.log('response', res)
+            this.setState({res});
+        });
+    }
+
 
     handleAddbook = () =>{
         const newBook = this.state.book;
@@ -53,8 +38,8 @@ class Books extends Component {
             return(<Book key={book.id} title={book.title}/>);
         })}
         <div>
-            <input name="title" onChange={(e)=> this.onChange(e)}/>
-            <button type="button" onClick={() => this.handleAddbook ()}>Add book</button>
+            <input name="title" onChange={this.onChange}/>
+            <button type="button" onClick={this.handleAddbook}>Add book</button>
          </div>
         </div>)
         
