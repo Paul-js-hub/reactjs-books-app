@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './register.css'
-import Axios from "axios";
+import axios from "axios";
 
 class Register extends Component {
   state = {
@@ -14,7 +14,7 @@ class Register extends Component {
 
   onSubmit = () => {
     const {email, password} = this.state;
-    Axios.post('http://localhost:80/api/register', {email,password},{
+    axios.post('http://localhost:80/api/register', {email,password},{
       headers: {
         "Content-type": "application/json; charset=UTF-8"
     },

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Books from "./components/Books";
 import Register from "./components/Register";
 import Header from "./components/Header";
+import Login from "./components/Login";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Switch>
             <Route path="/" component={Books} exact />
             <Route path="/register" component={Register} />
+            <Route path="/login" component={Login} />
           </Switch>
         </BrowserRouter>
       </div>

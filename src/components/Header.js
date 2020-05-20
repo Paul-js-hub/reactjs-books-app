@@ -15,7 +15,8 @@ const Header = () => (
       <li className="nav-item">
         <Link to="/register">Register</Link>
       </li>
-      <li className="nav-item">Sign in</li>
+      <li className="nav-item">
+        <Link to ='/login'>Login</Link></li>
     </ul>
   </Router>
 );
