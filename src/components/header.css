@@ -3,12 +3,13 @@ ul.nav {
   flex-direction: row;
   list-style: none;
 }
+
 li.nav-item {
-    width: 80px;
-}
-li.nav-item {
-    width: 80px;
+    width: 100%;
     background: #FF9800;
-    padding: 20px;
+    padding: 5px;
     cursor: pointer;
+}
+nav{
+  justify-content: space-evenly;
 }

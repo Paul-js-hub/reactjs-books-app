@@ -18,6 +18,11 @@ export class Login extends Component {
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             },
+        })
+        .then((res) =>{
+            const token = res.data.accessToken;
+            localStorage.setItem('accessToken', token);
+            console.log("response", token)
         });
     }
     render() {

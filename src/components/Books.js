@@ -12,8 +12,15 @@ class Books extends Component {
         this.fetchBooks();
     }
 
-     fetchBooks = () => {
-        axios.get('http://localhost:80/api/books')
+    fetchBooks = () => {
+        const token = localStorage.getItem('accessToken')
+        axios.get('http://localhost:80/api/books',
+            {
+                headers: {
+                    "auth-token": token
+                }
+            }
+        )
             .then(res => {
                 console.log('response', res)
                 this.setState({ books: res.data });
@@ -26,11 +33,13 @@ class Books extends Component {
 
 
     handleAddbook = (event) => {
+        const token = localStorage.getItem('accessToken');
         const { title } = this.state;
         console.log("title:", title)
         axios.post('http://localhost:80/api/books', { title }, {
             headers: {
-                "Content-type": "application/json; charset=UTF-8"
+                "Content-type": "application/json; charset=UTF-8",
+                "auth-token": token
             },
 
         })
@@ -38,8 +47,8 @@ class Books extends Component {
                 this.fetchBooks();
             })
     }
-    
-    updateBook =  (book) => {
+
+    updateBook = (book) => {
         const newBook = { title: book.title }
         axios.put(`http://localhost:80/api/books/${book.id}`, newBook)
             .then(() => {
