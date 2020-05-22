@@ -1,0 +1,14 @@
+input[type="text"] {
+  height: 25px;
+  padding: 5px;
+  width: 180px;
+}
+input[type="password"] {
+  height: 33px;
+  width: 180px;
+}
+button.sumbit-btn {
+    height: 39px;
+    width: 100px;
+    margin-left: 10px;
+}

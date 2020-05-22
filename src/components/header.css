@@ -1,0 +1,15 @@
+ul.nav {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+li.nav-item {
+    width: 100%;
+    background: #FF9800;
+    padding: 5px;
+    cursor: pointer;
+}
+nav{
+  justify-content: space-evenly;
+}
