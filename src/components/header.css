@@ -1,3 +1,8 @@
+body{
+  padding: 0px;
+  margin: 0px;
+}
+
 ul.nav {
   display: flex;
   flex-direction: row;
@@ -10,6 +15,8 @@ li.nav-item {
     padding: 5px;
     cursor: pointer;
 }
-nav{
-  justify-content: space-evenly;
+
+ul{
+  margin: 0 auto;
+  padding: 0;
 }

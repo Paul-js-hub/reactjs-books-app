@@ -5,6 +5,7 @@ import "./header.css";
 
 const Header = () => (
   <Router>
+    <body>
     <ul className="nav">
       <li className="nav-item">
         <Link to="/">Home</Link>
@@ -18,6 +19,9 @@ const Header = () => (
       <li className="nav-item">
         <Link to ='/login'>Login</Link></li>
     </ul>
+    </body>
+    
+    
   </Router>
 );
 
