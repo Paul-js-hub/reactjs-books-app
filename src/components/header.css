@@ -7,13 +7,12 @@ ul.nav {
   display: flex;
   flex-direction: row;
   list-style: none;
-  line-height: 50px;
 }
 
 li.nav-item {
     width: 100%;
     background: #FF9800;
-    padding: 25px;
+    padding: 20px;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -24,18 +23,20 @@ ul{
 }
 
 .text-link:hover{
-  color: cornsilk;
   background: black;
-}
-
-.text-link:active{
-  color:rebeccapurple;
+  padding: 20px;
 }
 
 .text-link:visited{
-  color: red;
+  color:#fff;
   
 }
+
+.text-link:active{
+  color:red;
+  
+}
+
 .text-link{
   text-decoration: none;
 }
