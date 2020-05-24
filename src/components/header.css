@@ -7,16 +7,35 @@ ul.nav {
   display: flex;
   flex-direction: row;
   list-style: none;
+  line-height: 50px;
 }
 
 li.nav-item {
     width: 100%;
-    background: #FF9800;
+    background:skyblue;
     padding: 5px;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
 ul{
   margin: 0 auto;
   padding: 0;
+}
+
+.text-link:hover{
+  color: cornsilk;
+  background: black;
+}
+
+.text-link:active{
+  color:rebeccapurple;
+}
+
+.text-link:visited{
+  color: red;
+  
+}
+.text-link{
+  text-decoration: none;
 }
