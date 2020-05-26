@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Book from './Book';
 import axios from 'axios';
+//import { Link } from "react-router-dom";
 
 class Books extends Component {
     state = {
         books: [],
         title: "",
+        author: ""
     }
 
     componentDidMount() {
@@ -34,9 +36,9 @@ class Books extends Component {
 
     handleAddbook = (event) => {
         const token = localStorage.getItem('accessToken');
-        const { title } = this.state;
-        console.log("title:", title)
-        axios.post('http://localhost:80/api/books', { title }, {
+        const { title, author } = this.state;
+        console.log("author:", author)
+        axios.post('http://localhost:80/api/books', { title, author }, {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 "auth-token": token
@@ -65,7 +67,8 @@ class Books extends Component {
     }
 
     onChange = (event) => {
-        this.setState({ title: event.target.value })
+        this.setState({ title: event.target.value });
+        this.setState({ author: event.target.value })
     }
 
 
@@ -75,15 +78,24 @@ class Books extends Component {
         return (
             <div>{
                 books.map((book) => {
-                    return (<Book key={book._id} title={book.title} id={book._id}
+                    return (<Book key={book._id} title={book.title} author={book.author} id={book._id}
                         onDelete={this.deleteBook}
                         onEdit={this.updateBook}
+                        addBook={this.handleAddbook}
                     />);
                 })}
-                <div>
+                {/* <div>
                     <input name="title" onChange={(event) => this.onChange(event)} />
+                    <input name="author" onChange={(event) => this.onChange(event)} />
                     <button type="button" onClick={this.handleAddbook}>Add book</button>
-                </div>
+                </div> */}
+                    {/* <Link>
+                        <img src="JavaScript.png" alt="JavaScript" width="185" height="185" />
+                    </Link>
+                    <div className="container">
+                        <h4><b>JavaScript</b></h4>
+                    <span>Paul Onchera</span>
+                    </div> */}
             </div>)
 
     }

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import EditBook from './EditBook';
+import AddBook from './AddBook';
 
 export class Book extends Component {
     render() {
         const { onDelete} = this.props;
         const title = this.props.title || '';
+        const author = this.props.author || '';
         const id = this.props.id || '';
         return (
             <div style={container}>
@@ -12,6 +14,11 @@ export class Book extends Component {
                 <EditBook 
                 onEdit = {this.props.onEdit}
                 id={id}
+                title={title}
+                />
+                <AddBook 
+                addBook= {this.props.addBook}
+                author={author}
                 title={title}
                 />
                 <p>{title}</p>

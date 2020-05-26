@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import Popup from 'reactjs-popup'
+import Popup from 'reactjs-popup';
 import './editbook.css';
 
 export class EditBook extends Component {
-  state = { open: "false", bookTitle: '' }
+  state = { 
+    open: "false", 
+    bookTitle: '' 
+  }
 
   componentDidMount() {
     const { title } = this.props;
