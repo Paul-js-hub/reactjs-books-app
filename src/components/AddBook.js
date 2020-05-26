@@ -10,13 +10,17 @@ export class AddBook extends Component {
 
     componentDidMount() {
         const { title, author } = this.props;
-        this.setState({ title });
-        this.setState({ author })
+        this.setState({ title,author });
       }
       onChange = (e) => {
-        this.setState({ title: e.target.value })
-        this.setState({ author: e.target.value })
+        this.setState({ [e.target.name]: e.target.value })
       }
+      addBook = () =>{
+        const {author, title} = this.state;
+        const { handleAddbook } = this.props; // parent prop function
+        console.log('hb:', handleAddbook)
+        handleAddbook({title, author}); // call parent prop function
+   }
     
       openModal() {
         this.setState({ open: "true" });
@@ -26,40 +30,51 @@ export class AddBook extends Component {
       }
     render() {
         const { title, author } = this.state;
-        const { addBook } = this.props;
         return (
-            <Popup
+            <div>
+                <Popup
         trigger=
         {
           <button style={btnStyle}>Add book</button>}>
         {close => (
-          <div>
+          <div style={container}>
             <h3>Add book</h3>
             <div>
               <input type='text'
+              name='title'
+              placeholder='Enter the title of the book'
                 value={title}
                 onChange={(e) => this.onChange(e)}
               >
               </input>
               <input type='text'
+              name='author'
+              placeholder='Enter the author of the book'
                 value={author}
                 onChange={(e) => this.onChange(e)}
               >
               </input>
             </div>
-            <div className="button-group">
-              <button className="close" onClick={close} >Cancel</button>
-              <button className="button-save" onClick={() => addBook({author, title})}>Save</button>
+            <div>
+              <button  onClick={close} >Cancel</button>
+              <button  onClick={() => this.addBook({title, author})}>Save</button>
+              
             </div>
           </div>
         )}
       </Popup>
+            </div>
+            
         )
     }
 }
 
 const btnStyle = {
-    float: 'right',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'center'
+  }
+
+  const container={
   }
 export default AddBook

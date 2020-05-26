@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Book from './Book';
 import axios from 'axios';
-//import { Link } from "react-router-dom";
+import AddBook from './AddBook'
 
 class Books extends Component {
     state = {
@@ -34,9 +34,9 @@ class Books extends Component {
     }
 
 
-    handleAddbook = (event) => {
+    handleAddbook = (data) => {
         const token = localStorage.getItem('accessToken');
-        const { title, author } = this.state;
+        const { title, author } = data;
         console.log("author:", author)
         axios.post('http://localhost:80/api/books', { title, author }, {
             headers: {
@@ -66,12 +66,7 @@ class Books extends Component {
             })
     }
 
-    onChange = (event) => {
-        this.setState({ title: event.target.value });
-        this.setState({ author: event.target.value })
-    }
-
-
+    
 
     render() {
         const { books } = this.state;
@@ -81,14 +76,12 @@ class Books extends Component {
                     return (<Book key={book._id} title={book.title} author={book.author} id={book._id}
                         onDelete={this.deleteBook}
                         onEdit={this.updateBook}
-                        addBook={this.handleAddbook}
+                        
                     />);
                 })}
-                {/* <div>
-                    <input name="title" onChange={(event) => this.onChange(event)} />
-                    <input name="author" onChange={(event) => this.onChange(event)} />
-                    <button type="button" onClick={this.handleAddbook}>Add book</button>
-                </div> */}
+                <AddBook 
+                addBook = {this.handleAddbook}
+                />
                     {/* <Link>
                         <img src="JavaScript.png" alt="JavaScript" width="185" height="185" />
                     </Link>
