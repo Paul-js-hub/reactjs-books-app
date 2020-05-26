@@ -13,21 +13,23 @@ class Register extends Component {
   };
 
   onSubmit = () => {
-    const {email, password} = this.state;
-    axios.post('http://localhost:80/api/register', {email,password},{
+    const { email, password } = this.state;
+    axios.post('http://localhost:80/api/register', { email, password }, {
       headers: {
         "Content-type": "application/json; charset=UTF-8"
-    },
+      },
     });
   }
 
   render() {
     return (
-      <div className="form">
-        <input name="email" placeholder="Enter your email" type="text" onChange={(e) => this.onChange(e)}/>
-        <input name="password" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)}/>
-        <button className="sumbit-btn" onClick={this.onSubmit}>Register</button>
-      </div>
+      <form>
+        <div className="form">
+          <input name="email" placeholder="Enter your email" type="text" onChange={(e) => this.onChange(e)} />
+          <input name="password" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
+          <button className="sumbit-btn" onClick={this.onSubmit}>Register</button>
+        </div>
+      </form>
     );
   }
 }

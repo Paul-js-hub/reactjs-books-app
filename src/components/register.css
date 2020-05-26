@@ -12,3 +12,7 @@ button.sumbit-btn {
     width: 100px;
     margin-left: 10px;
 }
+form{
+  display: flex;
+ justify-content: center;
+}

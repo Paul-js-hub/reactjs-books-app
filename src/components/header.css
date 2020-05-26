@@ -1,6 +1,7 @@
 body{
   padding: 0px;
   margin: 0px;
+  background-color:white
 }
 
 ul.nav {
@@ -34,6 +35,7 @@ ul{
 
 .text-link:active{
   color:red;
+  text-decoration: underline;
   
 }
 

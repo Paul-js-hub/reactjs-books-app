@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./header.css";
 
 const Header = () => (
-    <body>
       <ul className="nav">
         <li className="nav-item">
           <Link className="text-link" to="/">Home</Link>
@@ -25,7 +24,6 @@ const Header = () => (
           <Link className="text-link" to="/login">Login</Link>
         </li>
       </ul>
-    </body>
 
 );
 
