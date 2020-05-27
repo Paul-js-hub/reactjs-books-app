@@ -39,7 +39,9 @@ const container = {
     border:'2px solid black',
     margin:'5px',
     padding: '10px',
-    borderRadius:'10px solid black'
+    borderRadius:'10px solid black',
+    boxShadow:'1px 3px 5px 2px rgba(0,0,0,0.4)',
+    
 }
 
 const bodyStyle ={
