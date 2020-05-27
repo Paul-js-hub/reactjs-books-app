@@ -80,7 +80,7 @@ class Books extends Component {
                     />);
                 })}
                 <AddBook 
-                addBook = {this.handleAddbook}
+                handleAddbook = {this.handleAddbook}
                 />
                     {/* <Link>
                         <img src="JavaScript.png" alt="JavaScript" width="185" height="185" />

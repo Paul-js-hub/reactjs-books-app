@@ -4,14 +4,10 @@ import Popup from 'reactjs-popup';
 export class AddBook extends Component {
     state = { 
         open: "false", 
-        bookTitle: '',
-        bookAuthor: '' 
+        title: '',
+        author: '' 
     }
 
-    componentDidMount() {
-        const { title, author } = this.props;
-        this.setState({ title,author });
-      }
       onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
       }
@@ -34,10 +30,10 @@ export class AddBook extends Component {
             <div>
                 <Popup
         trigger=
-        {
-          <button style={btnStyle}>Add book</button>}>
+        {<button style={btnStyle}>Add book</button>}>
         {close => (
-          <div style={container}>
+          <div className='card'>
+           
             <h3>Add book</h3>
             <div>
               <input type='text'
@@ -55,9 +51,9 @@ export class AddBook extends Component {
               >
               </input>
             </div>
-            <div>
-              <button  onClick={close} >Cancel</button>
-              <button  onClick={() => this.addBook({title, author})}>Save</button>
+            <div className="button-group">
+              <button  className="close" onClick={close} >Cancel</button>
+              <button  className="button-save" onClick={() => this.addBook({title, author})}>Save</button>
               
             </div>
           </div>
@@ -71,10 +67,8 @@ export class AddBook extends Component {
 
 const btnStyle = {
     cursor: 'pointer',
-    display: 'flex',
-    justifyContent: 'center'
+    marginLeft:'100px'
   }
 
-  const container={
-  }
+
 export default AddBook

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import EditBook from './EditBook';
-//import AddBook from './AddBook';
 
 export class Book extends Component {
     render() {
         const { onDelete} = this.props;
         const title = this.props.title || '';
-        //const author = this.props.author || '';
+        const author = this.props.author || '';
         const id = this.props.id || '';
-        //console.log("tit:", title)
+
         return (
             <div style={container}>
                 <button style={btnStyle} type='delete' onClick={() => onDelete(id)}>Delete</button>
@@ -17,12 +16,9 @@ export class Book extends Component {
                 id={id}
                 title={title}
                 />
-                {/* <AddBook 
-                addBook= {this.props.addBook}
-                author={author}
-                title={title}
-                /> */}
-                <p>{title}</p>
+                <img src="JavaScript.png" alt="JavaScript" width="185" height="185" />
+                <b><p>{title}</p></b>
+                <p>{author}</p>
             </div>
 
         )
