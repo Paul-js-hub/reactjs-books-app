@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Book from './Book';
+import Book from '../Book/index';
 import axios from 'axios';
-import AddBook from './AddBook'
+import AddBook from '../AddBook/index';
+import './books.css'
 
 class Books extends Component {
     state = {
@@ -71,7 +72,7 @@ class Books extends Component {
     render() {
         const { books } = this.state;
         return (
-            <div>{
+            <div className='books-container'>{
                 books.map((book) => {
                     return (<Book key={book._id} title={book.title} author={book.author} id={book._id}
                         onDelete={this.deleteBook}

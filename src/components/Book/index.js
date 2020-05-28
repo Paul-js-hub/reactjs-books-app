@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import EditBook from './EditBook';
-
+import EditBook from '../EditBook/index';
+import './book.css'
 export class Book extends Component {
     render() {
         const { onDelete } = this.props;
@@ -9,8 +9,7 @@ export class Book extends Component {
         const id = this.props.id || '';
 
         return (
-            <body style={bodyStyle}>
-            <div style={container}>
+            <div className='card'>
                 <button style={btnStyle} type='delete' onClick={() => onDelete(id)}>Delete</button>
                 <EditBook
                     onEdit={this.props.onEdit}
@@ -25,7 +24,6 @@ export class Book extends Component {
                     <p>{author}</p>
                 </div>
             </div>
-            </body>
 
         )
     }
@@ -34,20 +32,7 @@ const btnStyle = {
     float: 'right'
 }
 
-const container = {
-    width: '250px',
-    border:'2px solid black',
-    margin:'5px',
-    padding: '10px',
-    borderRadius:'10px solid black',
-    boxShadow:'1px 3px 5px 2px rgba(0,0,0,0.4)',
-    
-}
 
-const bodyStyle ={
-    textAlign:'center',
-    placeItems:'center'
-}
 
 
 export default Book;

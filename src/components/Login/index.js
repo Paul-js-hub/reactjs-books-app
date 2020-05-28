@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './register.css';
+import '../Register/index';
 
 export class Login extends Component {
     state = {

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Books from "./components/Books";
-import Register from "./components/Register";
-import Header from "./components/Header";
-import Login from "./components/Login";
+import Books from "./components/Books/index";
+import Register from "./components/Register/index";
+import Header from "./components/Header/index";
+import Login from "./components/Login/index";
 
 
 class App extends Component {
