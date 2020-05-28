@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../Register/index';
+import './login.css';
 
 export class Login extends Component {
     state = {
@@ -27,13 +28,21 @@ export class Login extends Component {
     }
     render() {
         return (
-            <form>
+            <div className="content">
                 <div className="form">
+                    <h2>Login Here</h2>
+                    <label>
+                        <span>Email</span>
                     <input name="email" placeholder="Enter your email" type="text" onChange={(e) => this.onChange(e)} />
+                    </label>
+                    <label>
+                        <span>Password</span>
                     <input name="password" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
-                    <button className="sumbit-btn" onClick={this.onSubmit}>Login</button>
+                    </label>
+                    <button className="submit" type = "button" onClick={this.onSubmit}>Submit</button>
+                    <p className="forgot-pass">Forgot Password?</p>
+                    </div>
                 </div>
-            </form>
         );
     }
 }
