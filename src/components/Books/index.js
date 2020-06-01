@@ -38,7 +38,6 @@ class Books extends Component {
     handleAddbook = (data) => {
         const token = localStorage.getItem('accessToken');
         const { title, author } = data;
-        console.log("author:", author)
         axios.post(process.env.REACT_APP_API_URL + '/books', { title, author }, {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -60,7 +59,6 @@ class Books extends Component {
     }
 
     deleteBook = (id) => {
-        console.log('id', id)
         axios.delete(`process.env.REACT_APP_API_URL/books/${id}`)
             .then(() => {
                 this.fetchBooks();
