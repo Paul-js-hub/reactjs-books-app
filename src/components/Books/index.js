@@ -17,7 +17,7 @@ class Books extends Component {
 
     fetchBooks = () => {
         const token = localStorage.getItem('accessToken')
-        axios.get('http://localhost:80/api/books',
+        axios.get(process.env.REACT_APP_API_URL +'/books',
             {
                 headers: {
                     "auth-token": token
@@ -53,7 +53,7 @@ class Books extends Component {
 
     updateBook = (book) => {
         const newBook = { title: book.title }
-        axios.put(`http://localhost:80/api/books/${book.id}`, newBook)
+        axios.put(`process.env.REACT_APP_API_URL/books/${book.id}`, newBook)
             .then(() => {
                 this.fetchBooks()
             })
@@ -61,7 +61,7 @@ class Books extends Component {
 
     deleteBook = (id) => {
         console.log('id', id)
-        axios.delete(`http://localhost:80/api/books/${id}`)
+        axios.delete(`process.env.REACT_APP_API_URL/books/${id}`)
             .then(() => {
                 this.fetchBooks();
             })

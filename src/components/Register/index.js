@@ -14,7 +14,7 @@ class Register extends Component {
 
   onSubmit = () => {
     const { email, password } = this.state;
-    axios.post('http://localhost:80/api/register', { email, password }, {
+    axios.post(process.env.REACT_APP_API_URL +'/register', { email, password }, {
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       },
