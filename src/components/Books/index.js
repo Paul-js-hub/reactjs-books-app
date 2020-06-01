@@ -39,7 +39,7 @@ class Books extends Component {
         const token = localStorage.getItem('accessToken');
         const { title, author } = data;
         console.log("author:", author)
-        axios.post('http://localhost:80/api/books', { title, author }, {
+        axios.post(process.env.REACT_APP_API_URL + '/books', { title, author }, {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 "auth-token": token
@@ -67,7 +67,7 @@ class Books extends Component {
             })
     }
 
-    
+
 
     render() {
         const { books } = this.state;
@@ -77,11 +77,11 @@ class Books extends Component {
                     return (<Book key={book._id} title={book.title} author={book.author} id={book._id}
                         onDelete={this.deleteBook}
                         onEdit={this.updateBook}
-                        
+
                     />);
                 })}
-                <AddBook 
-                handleAddbook = {this.handleAddbook}
+                <AddBook
+                    handleAddbook={this.handleAddbook}
                 />
             </div>)
 

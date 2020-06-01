@@ -15,7 +15,7 @@ export class Login extends Component {
 
     onSubmit = () => {
         const { email, password } = this.state;
-        axios.post('http://localhost:80/api/login', { email, password }, {
+        axios.post(process.env.REACT_APP_API_URL +'/login', { email, password }, {
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             },
