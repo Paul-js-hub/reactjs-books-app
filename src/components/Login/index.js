@@ -23,7 +23,6 @@ export class Login extends Component {
             .then((res) => {
                 const token = res.data.accessToken;
                 localStorage.setItem('accessToken', token);
-                console.log("response", token)
             });
     }
     render() {
@@ -43,6 +42,7 @@ export class Login extends Component {
                     <p className="forgot-pass">Forgot Password?</p>
                     </div>
                 </div>
+            
         );
     }
 }

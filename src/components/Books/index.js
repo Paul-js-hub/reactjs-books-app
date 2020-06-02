@@ -25,7 +25,6 @@ class Books extends Component {
             }
         )
             .then(res => {
-                console.log('response', res)
                 this.setState({ books: res.data });
             })
             .catch((error) => {

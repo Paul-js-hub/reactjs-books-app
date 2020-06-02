@@ -23,13 +23,11 @@ class Register extends Component {
 
   render() {
     return (
-      <form>
-        <div className="form">
+        <div>
           <input name="email" placeholder="Enter your email" type="text" onChange={(e) => this.onChange(e)} />
           <input name="password" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
           <button className="sumbit-btn" onClick={this.onSubmit}>Register</button>
         </div>
-      </form>
     );
   }
 }
