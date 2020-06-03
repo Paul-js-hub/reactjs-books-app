@@ -58,7 +58,8 @@ class Books extends Component {
     }
 
     deleteBook = (id) => {
-        axios.delete(`process.env.REACT_APP_API_URL/books/${id}`)
+        console.log('id', id)
+        axios.delete(process.env.REACT_APP_API_URL +`/books/${id}`)
             .then(() => {
                 this.fetchBooks();
             })
@@ -69,7 +70,7 @@ class Books extends Component {
     render() {
         const { books } = this.state;
         return (
-            <div className='books-container'>{
+            <div className="books-container">{
                 books.map((book) => {
                     return (<Book key={book._id} title={book.title} author={book.author} id={book._id}
                         onDelete={this.deleteBook}
