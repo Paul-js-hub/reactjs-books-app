@@ -23,7 +23,7 @@ class Register extends Component {
 
   render() {
     return (
-        <div>
+        <div class="form-container">
           <input class="form-input" name="email" placeholder="Enter your email" type="text" onChange={(e) => this.onChange(e)} />
           <input class="form-input" name="password" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
           <button className="sumbit-btn" onClick={this.onSubmit}>Register</button>

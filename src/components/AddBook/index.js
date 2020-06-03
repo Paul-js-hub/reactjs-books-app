@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Popup from 'reactjs-popup';
+import './addbook.css';
 
 export class AddBook extends Component {
   state = {
@@ -30,9 +31,9 @@ export class AddBook extends Component {
       <div>
         <Popup
           trigger=
-          {<button style={btnStyle}>Add book</button>}>
+          {<button>Add book</button>}>
           {close => (
-            <div className='card'>
+            <div >
 
               <h3>Add book</h3>
               <div>
@@ -65,10 +66,6 @@ export class AddBook extends Component {
   }
 }
 
-const btnStyle = {
-  cursor: 'pointer',
-  marginLeft: '100px'
-}
 
 
 export default AddBook

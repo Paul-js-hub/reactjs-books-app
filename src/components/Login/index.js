@@ -15,7 +15,7 @@ export class Login extends Component {
 
     onSubmit = () => {
         const { email, password } = this.state;
-        axios.post(process.env.REACT_APP_API_URL +'/login', { email, password }, {
+        axios.post(process.env.REACT_APP_API_URL + '/login', { email, password }, {
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             },
@@ -32,17 +32,17 @@ export class Login extends Component {
                     <h2>Login Here</h2>
                     <label>
                         <span>Email</span>
-                    <input name="email" placeholder="Enter your email" type="text" onChange={(e) => this.onChange(e)} />
+                        <input name="email" placeholder="Enter your email" type="text" onChange={(e) => this.onChange(e)} />
                     </label>
                     <label>
                         <span>Password</span>
-                    <input name="password" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
+                        <input name="password" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
                     </label>
-                    <button className="submit" type = "button" onClick={this.onSubmit}>Submit</button>
+                    <button className="submit" type="button" onClick={this.onSubmit}>Submit</button>
                     <p className="forgot-pass">Forgot Password?</p>
-                    </div>
                 </div>
-            
+            </div>
+
         );
     }
 }
