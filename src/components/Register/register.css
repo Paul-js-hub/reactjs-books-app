@@ -5,6 +5,12 @@
   align-items: center;
 }
 
+h1.header-registration {
+  font-weight: 300;
+  color: #7f7676;
+  font-size: 21px;
+}
+
 input.form-input {
   width: 200px;
   border: 1px solid #d0d6d0;
