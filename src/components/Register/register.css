@@ -5,7 +5,15 @@
   align-items: center;
 }
 
-h1.header-registration {
+.form-user-details{
+  padding: 20px 20px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1.header-tag {
   font-weight: 300;
   color: #7f7676;
   font-size: 21px;
@@ -20,20 +28,70 @@ input.form-input {
   height: 30px;
   border-radius: 5px;
   outline: none;
+  margin: 16px 0;
 }
 
-button.sumbit-btn {
+button.submit-btn {
   height: 38px;
-  margin-top: 32px;
-  margin-left: 8px;
+  margin-top: 16px;
   width: 210px;
   border-radius: 5px;
   border: 1px solid;
   background: hsl(221, 4%, 67%);
-  color: white;
+  color:#ffffff;
   cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 12px 45px;
+  transition: transform 80ms ease-in;
 }
 
-button.sumbit-btn:focus{
+button.submit-btn:active {
+  transform: scale(0.95);
+}
+
+button.submit-btn:focus{
   outline: none;
+}
+
+.social-container {
+  margin: 16px 0;
+}
+
+.google-icon{
+  color: #D44940;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+  font-size: 18px;
+}
+
+.github-icon{
+  color: #000000;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+  font-size: 18px;
+}
+
+.facebook-icon{
+  color: #385697;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+  font-size: 18px;
+}
+
+.twitter-icon{
+  color: #1C98EB;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+  font-size: 18px;
+}
+
+.email-span{
+  font-weight: 300;
+  color: #7f7676;
+  font-size: 14px;
 }
