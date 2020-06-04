@@ -23,7 +23,7 @@ class Register extends Component {
 
   onSubmit = () => {
     const { email, password } = this.state;
-    axios.post(process.env.REACT_APP_API_URL +'/register', { email, password }, {
+    axios.post(process.env.REACT_APP_API_URL + '/register', { email, password }, {
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       },
@@ -32,18 +32,21 @@ class Register extends Component {
 
   render() {
     return (
-        <div class="form-container">
-          <h1 className="header-registration">Register for an account</h1>
+      <div className="form-container">
+        <div className="form-user-details">
+          <h1 className="header-tag">Register for an Account</h1>
           <div className="social-container">
-          <Link><FontAwesomeIcon icon={faGoogle} style={{ color: 'red' }} className="google-icon" /></Link>
-          <Link><FontAwesomeIcon icon={faGithubAlt} style={{ color: 'gray' }} className="github-icon"/></Link>
-          <Link><FontAwesomeIcon icon={faFacebook} style={{ color: 'blue' }} className="facebook-icon"/></Link>
-          <Link><FontAwesomeIcon icon={faTwitter} style={{ color: 'light-blue' }} className="twitter-icon"/></Link>
+            <Link><FontAwesomeIcon icon={faGoogle} className="google-icon" /></Link>
+            <Link><FontAwesomeIcon icon={faGithubAlt} className="github-icon" /></Link>
+            <Link><FontAwesomeIcon icon={faFacebook} className="facebook-icon" /></Link>
+            <Link><FontAwesomeIcon icon={faTwitter} className="twitter-icon" /></Link>
           </div>
-          <input class="form-input" name="email" placeholder="Enter your email" type="text" onChange={(e) => this.onChange(e)} />
-          <input class="form-input" name="password" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
-          <button className="sumbit-btn" onClick={this.onSubmit}>Register</button>
+          <span className="email-span">or use your email for registration</span>
+          <input className="form-input" name="email" placeholder="Enter your email" type="text" onChange={(e) => this.onChange(e)} />
+          <input className="form-input" name="password" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
+          <button className="submit-btn" onClick={this.onSubmit}>Register</button>
         </div>
+      </div>
     );
   }
 }
