@@ -11,12 +11,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 32px;
 }
 
 h1.header-tag {
   font-weight: 300;
   color: #7f7676;
   font-size: 21px;
+  margin-bottom: 4px;
 }
 
 input.form-input {
@@ -64,6 +66,8 @@ button.submit-btn:focus{
   height: 40px;
   width: 40px;
   font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .github-icon{
@@ -72,6 +76,8 @@ button.submit-btn:focus{
   height: 40px;
   width: 40px;
   font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .facebook-icon{
@@ -80,6 +86,8 @@ button.submit-btn:focus{
   height: 40px;
   width: 40px;
   font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .twitter-icon{
@@ -88,6 +96,8 @@ button.submit-btn:focus{
   height: 40px;
   width: 40px;
   font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .email-span{
