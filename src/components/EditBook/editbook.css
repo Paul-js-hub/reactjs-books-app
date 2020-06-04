@@ -9,3 +9,15 @@ input[type="text"] {
     margin-top: 30px;
     margin-left: 10px;
 }
+
+button.btn-edit {
+    float: right;
+    border: none;
+    background: white;
+    outline: none;
+    cursor: pointer;
+}
+
+i.far.fa-edit {
+    color: #424242;
+}
