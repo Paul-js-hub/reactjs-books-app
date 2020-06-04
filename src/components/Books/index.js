@@ -73,9 +73,8 @@ class Books extends Component {
             <div className="books-container">{
                 books.map((book) => {
                     return (<Book key={book._id} title={book.title} author={book.author} id={book._id}
-                        onDelete={this.deleteBook}
                         onEdit={this.updateBook}
-
+                        onDelete={this.deleteBook}
                     />);
                 })}
                 <AddBook

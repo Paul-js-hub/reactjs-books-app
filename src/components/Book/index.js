@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import EditBook from '../EditBook/index';
-import './book.css'
+import './book.css';
+import { MDBIcon } from 'mdbreact';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 export class Book extends Component {
     render() {
         const { onDelete } = this.props;
@@ -10,7 +13,9 @@ export class Book extends Component {
 
         return (
             <div className='card'>
-                <button style={btnStyle} type='delete' onClick={() => onDelete(id)}>Delete</button>
+                <div className="delete-container">
+                <button className="btn-delete" onClick={() => onDelete(id)}><MDBIcon far icon="trash-alt" /></button>
+                </div>
                 <EditBook
                     onEdit={this.props.onEdit}
                     id={id}
@@ -19,17 +24,12 @@ export class Book extends Component {
                 <div className='image'>
                     <img src="JavaScript.png" alt="JavaScript" width="185" height="185" />
                 </div>
-                <div className='content'>
-                    <b><p>{title}</p></b>
-                    <p>{author}</p>
-                </div>
+                    <div className="content-title">{title}</div>
+        <div className="content-author">{author}</div>
             </div>
 
         )
     }
-}
-const btnStyle = {
-    float: 'right'
 }
 
 

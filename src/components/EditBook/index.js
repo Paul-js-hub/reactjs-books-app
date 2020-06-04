@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Popup from 'reactjs-popup';
 import './editbook.css';
+import { MDBIcon } from 'mdbreact';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 export class EditBook extends Component {
   state = { 
@@ -30,7 +33,7 @@ export class EditBook extends Component {
       <Popup
         trigger=
         {
-          <button style={btnStyle}>Edit</button>}>
+          <button className="btn-edit"><MDBIcon far icon="edit" /></button>}>
         {close => (
           <div>
             <h3>Edit book</h3>
@@ -52,8 +55,4 @@ export class EditBook extends Component {
   }
 }
 
-const btnStyle = {
-  float: 'right',
-  cursor: 'pointer'
-}
 export default EditBook
