@@ -1,0 +1,10 @@
+.addbook-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-right: 600px;
+    margin-bottom: 300px;
+    padding-left: 72px;
+}
+
+
