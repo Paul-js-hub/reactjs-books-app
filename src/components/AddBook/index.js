@@ -15,7 +15,6 @@ export class AddBook extends Component {
   addBook = () => {
     const { author, title } = this.state;
     const { handleAddbook } = this.props; // parent prop function
-    console.log('hb:', handleAddbook)
     handleAddbook({ title, author }); // call parent prop function
   }
 
@@ -28,13 +27,12 @@ export class AddBook extends Component {
   render() {
     const { title, author } = this.state;
     return (
-      <div>
+      <div className="addbook-container">
         <Popup
-          trigger=
-          {<button>Add book</button>}>
+          trigger= 
+          {<button className="addbook-btn">Add Book</button>}>
           {close => (
-            <div >
-
+            <div className="popup-contai ner">
               <h3>Add book</h3>
               <div>
                 <input type='text'
