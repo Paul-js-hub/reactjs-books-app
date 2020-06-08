@@ -40,7 +40,7 @@ class Books extends Component {
         axios.post(process.env.REACT_APP_API_URL + '/books', { title, author }, {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
-                "auth-token": token
+                "auth-token": token,
             },
 
         })
@@ -58,7 +58,6 @@ class Books extends Component {
     }
 
     deleteBook = (id) => {
-        console.log('id', id)
         axios.delete(process.env.REACT_APP_API_URL +`/books/${id}`)
             .then(() => {
                 this.fetchBooks();

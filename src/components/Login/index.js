@@ -10,6 +10,7 @@ import {
     faTwitter
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {  toast } from 'react-smart-toaster';
 
 export class Login extends Component {
     state = {
@@ -29,12 +30,22 @@ export class Login extends Component {
             },
         })
             .then((res) => {
+                const message = res.data.message;
+                toast.success(message)
                 const token = res.data.accessToken;
                 localStorage.setItem('accessToken', token);
-            });
+            })
+            .catch((err) => {
+                console.log("err", err.response)
+                const message = err.response.data.message
+                toast.error(message);
+
+
+            })
     }
     render() {
         return (
+
             <div className="form-container">
                 <div className="form-user-details">
                     <h1 className="header-tag">Login Here</h1>
