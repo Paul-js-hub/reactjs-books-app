@@ -34,6 +34,9 @@ class Register extends Component {
       const message = response.data.message;
       toast.success(message);
       console.log('response', response)
+      if(message === 'Account registered successfully'){
+        this.props.history.push('/login')
+      }
     })
     .catch((err)=>{
       const message = err.response.data.message;
