@@ -31,9 +31,13 @@ export class Login extends Component {
         })
             .then((res) => {
                 const message = res.data.message;
+                console.log('login res', res)
                 toast.success(message)
                 const token = res.data.accessToken;
                 localStorage.setItem('accessToken', token);
+                if(message ==='Logged In Successfully'){
+                    this.props.history.push('/')
+                }
             })
             .catch((err) => {
                 console.log("err", err.response)
@@ -41,7 +45,8 @@ export class Login extends Component {
                 toast.error(message);
 
 
-            })
+            });
+
     }
     render() {
         return (
@@ -58,7 +63,7 @@ export class Login extends Component {
                     <span className="email-span">or use your email account</span>
                     <input className="form-input" name="email" placeholder="Enter your email" type="text" onChange={(e) => this.onChange(e)} />
                     <input className="form-input" name="password" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
-                    <button className="submit-btn" onClick={this.onSubmit}>Submit</button>
+                    <button className="submit-btn" onClick={this.onSubmit}>Login</button>
                     <p className="forgot-pass">Forgot Password?</p>
                 </div>
             </div>
