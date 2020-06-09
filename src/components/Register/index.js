@@ -9,6 +9,7 @@ import {
   faTwitter
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {  toast } from 'react-smart-toaster';
 
 
 class Register extends Component {
@@ -30,8 +31,15 @@ class Register extends Component {
     })
 
     .then((response)=>{
+      const message = response.data.message;
+      toast.success(message);
       console.log('response', response)
-    });
+    })
+    .catch((err)=>{
+      const message = err.response.data.message;
+      toast.error(message);
+      console.log('err', err.response)
+    })
   }
 
   render() {
