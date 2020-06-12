@@ -8,7 +8,8 @@ class Books extends Component {
     state = {
         books: [],
         title: "",
-        author: ""
+        author: "",
+        bookImage:""
     }
 
     componentDidMount() {
@@ -36,8 +37,8 @@ class Books extends Component {
 
     handleAddbook = (data) => {
         const token = localStorage.getItem('accessToken');
-        const { title, author } = data;
-        axios.post(process.env.REACT_APP_API_URL + '/books', { title, author }, {
+        const { title, author, bookImage } = data;
+        axios.post(process.env.REACT_APP_API_URL + '/books', { title, author, bookImage }, {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 "auth-token": token,

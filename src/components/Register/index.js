@@ -33,7 +33,6 @@ class Register extends Component {
     .then((response)=>{
       const message = response.data.message;
       toast.success(message);
-      console.log('response', response)
       if(message === 'Account registered successfully'){
         this.props.history.push('/login')
       }
@@ -41,7 +40,6 @@ class Register extends Component {
     .catch((err)=>{
       const message = err.response.data.message;
       toast.error(message);
-      console.log('err', err.response)
     })
   }
 

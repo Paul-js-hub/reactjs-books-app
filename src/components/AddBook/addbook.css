@@ -8,3 +8,20 @@
 }
 
 
+.addbook-btn{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:200px;
+	right:100px;
+	background-color:#13dfb3;
+	color:#FFF;
+	border-radius:50px;
+	cursor: pointer;
+    box-shadow: 2px 2px 3px #999;
+    border: 1px solid#13dfb3;
+    outline: none;
+}
+
+
+

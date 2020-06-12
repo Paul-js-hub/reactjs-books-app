@@ -31,7 +31,6 @@ export class Login extends Component {
         })
             .then((res) => {
                 const message = res.data.message;
-                console.log('login res', res)
                 toast.success(message)
                 const token = res.data.accessToken;
                 localStorage.setItem('accessToken', token);
@@ -40,7 +39,6 @@ export class Login extends Component {
                 }
             })
             .catch((err) => {
-                console.log("err", err.response)
                 const message = err.response.data.message
                 toast.error(message);
 

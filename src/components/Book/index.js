@@ -14,7 +14,7 @@ export class Book extends Component {
         return (
             <div className='card'>
                 <div className="delete-container">
-                <button className="btn-delete" onClick={() => onDelete(id)}><MDBIcon far icon="trash-alt" /></button>
+                    <button className="btn-delete" onClick={() => onDelete(id)}><MDBIcon far icon="trash-alt" /></button>
                 </div>
                 <EditBook
                     onEdit={this.props.onEdit}
@@ -24,8 +24,8 @@ export class Book extends Component {
                 <div className='image'>
                     <img src="Js.png" alt="JavaScript" width="185" height="185" />
                 </div>
-                    <div className="content-title">{title}</div>
-        <div className="content-author">by:{author}</div>
+                <div className="content-title">{title}</div>
+                <div className="content-author">by:{author}</div>
             </div>
 
         )

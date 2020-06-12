@@ -30,7 +30,7 @@ export class AddBook extends Component {
       <div className="addbook-container">
         <Popup
           trigger= 
-          {<button className="addbook-btn">Add Book</button>}>
+          {<button className="addbook-btn"><i class="fa fa-plus my-float"></i></button>}>
           {close => (
             <div className="popup-contai ner">
               <h3>Add book</h3>
