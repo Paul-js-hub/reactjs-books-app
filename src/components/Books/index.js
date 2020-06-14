@@ -9,7 +9,7 @@ class Books extends Component {
         books: [],
         title: "",
         author: "",
-        bookImage:""
+        bookImage: ""
     }
 
     componentDidMount() {
@@ -18,7 +18,7 @@ class Books extends Component {
 
     fetchBooks = () => {
         const token = localStorage.getItem('accessToken')
-        axios.get(process.env.REACT_APP_API_URL +'/books',
+        axios.get(process.env.REACT_APP_API_URL + '/books',
             {
                 headers: {
                     "auth-token": token
@@ -27,6 +27,7 @@ class Books extends Component {
         )
             .then(res => {
                 this.setState({ books: res.data });
+                console.log('response:', res)
             })
             .catch((error) => {
                 console.log('err: ', error);
@@ -38,9 +39,12 @@ class Books extends Component {
     handleAddbook = (data) => {
         const token = localStorage.getItem('accessToken');
         const { title, author, bookImage } = data;
-        axios.post(process.env.REACT_APP_API_URL + '/books', { title, author, bookImage }, {
+        const fd = new FormData();
+        fd.append('bookImage', bookImage);
+        fd.append('title', title);
+        fd.append('author', author);
+        axios.post(process.env.REACT_APP_API_URL + '/books', fd, {
             headers: {
-                "Content-type": "application/json; charset=UTF-8",
                 "auth-token": token,
             },
 
@@ -59,7 +63,7 @@ class Books extends Component {
     }
 
     deleteBook = (id) => {
-        axios.delete(process.env.REACT_APP_API_URL +`/books/${id}`)
+        axios.delete(process.env.REACT_APP_API_URL + `/books/${id}`)
             .then(() => {
                 this.fetchBooks();
             })
@@ -72,10 +76,16 @@ class Books extends Component {
         return (
             <div className="books-container">{
                 books.map((book) => {
-                    return (<Book key={book._id} title={book.title} author={book.author} id={book._id}
-                        onEdit={this.updateBook}
-                        onDelete={this.deleteBook}
-                    />);
+                    return (
+                        <Book
+                            key={book._id}
+                            title={book.title}
+                            author={book.author}
+                            bookImage={book.bookImage}
+                            id={book._id}
+                            onEdit={this.updateBook}
+                            onDelete={this.deleteBook}
+                        />);
                 })}
                 <AddBook
                     handleAddbook={this.handleAddbook}
