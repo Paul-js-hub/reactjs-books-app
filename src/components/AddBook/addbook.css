@@ -12,21 +12,55 @@
 	position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 200px;
-    left: 200px;
-    right: 100px;
-    background-color: #13dfb3;
+    bottom: 40px;
+    right: 40px;
+    background-color: #717779;
     color: #FFF;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 2px 2px 3px #999;
-    border: 1px solid#13dfb3;
+    border: 1px solid #717779;
     outline: none;
 }
 
-.popup-content {
-    width: 600px !important;
+.add-book-header {
+    margin-bottom: -16px;
+    text-align: center;
+    color: #717779;
 }
 
+.add-book-input-details{
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid #bfb3b3;
+    margin-top: 24px;
+    margin-left: 10px;
+    height: 24px;
+}
+
+.input-file-wrapper {
+    margin-left: 10px;
+    margin-top: 24px;
+    overflow: hidden;
+}
+
+.upload-bookimage {
+    cursor: pointer;
+    height: 20px;
+}
+
+button.btn-close {
+    border-radius: 1px;
+    outline: none;
+    border: 1px solid gray;
+}
+
+button.button-save {
+    border-radius: 1px;
+    outline: none;
+    border: 1px solid gray;
+    cursor: pointer;
+    background: hsl(221, 4%, 67%);
+}
 
 

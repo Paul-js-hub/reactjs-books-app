@@ -18,7 +18,6 @@ export class AddBook extends Component {
   addBook = () => {
     const { author, title, bookImage } = this.state;
     const { handleAddbook } = this.props; // parent prop function
-    console.log('handleaddbook: ', handleAddbook)
     handleAddbook({ title, author, bookImage }); // call parent prop function
 
   }
@@ -35,7 +34,7 @@ export class AddBook extends Component {
     this.setState({ open: "false" });
   }
   render() {
-    const {title, author, bookImage} = this.state;
+    const { title, author, bookImage } = this.state;
     const { handleAddbook } = this.props;
     return (
       <div className="addbook-container">
@@ -43,24 +42,35 @@ export class AddBook extends Component {
           trigger=
           {<button className="addbook-btn">
             <i class="fa fa-plus my-float"></i>
-          </button>}>
+          </button>}
+          position="left bottom"
+          arrow={false}
+        >
           {close => (
             <div className="popup-container">
-              <h3>Add book</h3>
-              <div>
-                <input type='text'
-                  name='title'
-                  placeholder='Enter the title of the book'
-                  onChange={(e) => this.onChange(e)}
-                >
-                </input>
-                <input type='text'
-                  name='author'
-                  placeholder='Enter the author of the book'
-                  onChange={(e) => this.onChange(e)}
-                >
-                </input>
-                <input type="file"
+              <div className="add-book-header">
+                <h3>Add book</h3>
+              </div>
+              <input
+                className="add-book-input-details"
+                type='text'
+                name='title'
+                placeholder='Enter the title of the book'
+                onChange={(e) => this.onChange(e)}
+              >
+              </input>
+              <input
+                className="add-book-input-details"
+                type='text'
+                name='author'
+                placeholder='Enter the author of the book'
+                onChange={(e) => this.onChange(e)}
+              >
+              </input>
+              <div className="input-file-wrapper">
+                <input
+                  className="upload-bookimage"
+                  type="file"
                   name="bookImage"
                   onChange={this.fileSelectedHandler}>
                 </input>
@@ -71,7 +81,6 @@ export class AddBook extends Component {
                   onClick={() => handleAddbook({ title, author, bookImage })}>
                   Save
                 </button>
-
               </div>
             </div>
           )}
