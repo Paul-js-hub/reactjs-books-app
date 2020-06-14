@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
 import Popup from 'reactjs-popup';
 import './addbook.css';
+//import axios from 'axios';
 
 export class AddBook extends Component {
   state = {
     open: "false",
     title: '',
-    author: ''
+    author: '',
+    bookImage: ''
   }
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
+
   addBook = () => {
-    const { author, title } = this.state;
+    const { author, title, bookImage } = this.state;
     const { handleAddbook } = this.props; // parent prop function
-    handleAddbook({ title, author }); // call parent prop function
+    console.log('handleaddbook: ', handleAddbook)
+    handleAddbook({ title, author, bookImage }); // call parent prop function
+
+  }
+
+  fileSelectedHandler = event => {
+    console.log(event.target.files[0])
+    this.setState({ bookImage: event.target.files[0] });
   }
 
   openModal() {
@@ -25,34 +35,42 @@ export class AddBook extends Component {
     this.setState({ open: "false" });
   }
   render() {
-    const { title, author } = this.state;
+    const {title, author, bookImage} = this.state;
+    const { handleAddbook } = this.props;
     return (
       <div className="addbook-container">
         <Popup
-          trigger= 
-          {<button className="addbook-btn"><i class="fa fa-plus my-float"></i></button>}>
+          trigger=
+          {<button className="addbook-btn">
+            <i class="fa fa-plus my-float"></i>
+          </button>}>
           {close => (
-            <div className="popup-contai ner">
+            <div className="popup-container">
               <h3>Add book</h3>
               <div>
                 <input type='text'
                   name='title'
                   placeholder='Enter the title of the book'
-                  value={title}
                   onChange={(e) => this.onChange(e)}
                 >
                 </input>
                 <input type='text'
                   name='author'
                   placeholder='Enter the author of the book'
-                  value={author}
                   onChange={(e) => this.onChange(e)}
                 >
                 </input>
+                <input type="file"
+                  name="bookImage"
+                  onChange={this.fileSelectedHandler}>
+                </input>
               </div>
               <div className="button-group">
-                <button className="close" onClick={close} >Cancel</button>
-                <button className="button-save" onClick={() => this.addBook({ title, author })}>Save</button>
+                <button className="btn-close" onClick={close} >Cancel</button>
+                <button className="button-save"
+                  onClick={() => handleAddbook({ title, author, bookImage })}>
+                  Save
+                </button>
 
               </div>
             </div>

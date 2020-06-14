@@ -9,6 +9,7 @@ export class Book extends Component {
         const { onDelete } = this.props;
         const title = this.props.title || '';
         const author = this.props.author || '';
+        const bookImage = this.props.bookImage || '';
         const id = this.props.id || '';
 
         return (
@@ -22,7 +23,7 @@ export class Book extends Component {
                     title={title}
                 />
                 <div className='image'>
-                    <img src="Js.png" alt="JavaScript" width="185" height="185" />
+                    <img src={bookImage} alt="JavaScript" width="185" height="185" />
                 </div>
                 <div className="content-title">{title}</div>
                 <div className="content-author">by:{author}</div>
