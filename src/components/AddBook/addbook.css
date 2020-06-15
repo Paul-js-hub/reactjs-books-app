@@ -47,6 +47,7 @@
 .upload-bookimage {
     cursor: pointer;
     height: 20px;
+    width: 380px;
 }
 
 button.btn-close {
@@ -60,7 +61,18 @@ button.button-save {
     outline: none;
     border: 1px solid gray;
     cursor: pointer;
-    background: hsl(221, 4%, 67%);
+    background: #1010d4;
+    color: white;
 }
 
+.popup-content {
+    margin-left: -25% !important;
+    width: -50% !important;
+    width: 400px !important;
+}
 
+.add-book-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 8px;
+}
