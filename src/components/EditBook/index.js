@@ -33,7 +33,10 @@ export class EditBook extends Component {
       <Popup
         trigger=
         {
-          <button className="btn-edit"><MDBIcon far icon="edit" /></button>}>
+          <button className="btn-edit"><MDBIcon far icon="edit" />
+          </button>}
+          position="left bottom"
+          >
         {close => (
           <div>
             <h3>Edit book</h3>
