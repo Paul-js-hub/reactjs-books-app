@@ -5,6 +5,7 @@ import Register from "./components/Register/index";
 import Header from "./components/Header/index";
 import Login from "./components/Login/index";
 import { SmartToaster, toast } from 'react-smart-toaster';
+import SideBar from "./components/SideBar/index";
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
                 />
         <BrowserRouter>
           <Header />
+          <SideBar />
           <Switch>
             <Route path="/" component={Books} exact />
             <Route path="/register" component={Register}/>
