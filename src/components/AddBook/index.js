@@ -69,9 +69,11 @@ export class AddBook extends Component {
                 ></input>
               </div>
               <div className="input-file-wrapper">
+                <label>Select image:</label>
                 <input
                   className="upload-bookimage"
                   type="file"
+                  accept="image/*"
                   name="bookImage"
                   onChange={this.fileSelectedHandler}
                 ></input>
