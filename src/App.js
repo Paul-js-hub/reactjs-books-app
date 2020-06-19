@@ -6,6 +6,8 @@ import NavHeader from "./components/Header/index";
 import Login from "./components/Login/index";
 import { SmartToaster, toast } from 'react-smart-toaster';
 import 'antd/dist/antd.css';
+import AddBook from "./components/AddBook";
+//import EditBook from "./components/EditBook";
 
 
 class App extends Component {
@@ -23,6 +25,7 @@ class App extends Component {
             <Route path="/" component={Books} exact />
             <Route path="/register" component={Register}/>
             <Route path="/login" component={Login}/>
+            <Route path="/addbook" component={AddBook} />
           </Switch>
         </BrowserRouter>
       </div>

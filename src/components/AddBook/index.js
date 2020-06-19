@@ -19,6 +19,7 @@ export class AddBook extends Component {
     const { author, title, bookImage } = this.state;
     const { handleAddbook } = this.props; // parent prop function
     handleAddbook({ title, author, bookImage }); // call parent prop function
+    console.log("hd:", handleAddbook)
   };
 
   fileSelectedHandler = (event) => {
@@ -34,14 +35,12 @@ export class AddBook extends Component {
   }
 
   render() {
-    const { title, author, bookImage } = this.state;
-    const { handleAddbook } = this.props;
     return (
       <div className="addbook-container">
         <Popup
           trigger={
             <button className="addbook-btn">
-              <i class="fa fa-plus my-float"></i>
+              <i className="fa fa-plus my-float"></i>
             </button>
           }
           position="left bottom"
@@ -84,7 +83,7 @@ export class AddBook extends Component {
                 </button>
                 <button
                   className="button-save"
-                  onClick={() => handleAddbook({ title, author, bookImage })}
+                  onClick={() => this.addBook}
                 >
                   Save
                 </button>
