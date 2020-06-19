@@ -14,40 +14,12 @@ const NavHeader = () => (
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
           <Menu.Item key="1">
             <li className="nav-item">
-              <Link className="text-link" to="/">
-                Home
-              </Link>
-            </li>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <li className="nav-item">
-              <Link className="text-link" to="/about">
-                About
-              </Link>
-            </li>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <li className="nav-item">
-              <Link className="text-link" to="/books">
-                Books
-              </Link>
-            </li>
-          </Menu.Item>
-          <Menu.Item key="4">
-            <li className="nav-item">
-              <Link className="text-link" to="/contacts">
-                Contact
-              </Link>
-            </li>
-          </Menu.Item>
-          <Menu.Item key="5">
-            <li className="nav-item">
               <Link className="text-link" to="/register">
                 Register
               </Link>
             </li>
           </Menu.Item>
-          <Menu.Item key="6">
+          <Menu.Item key="2">
             <li className="nav-item">
               <Link className="text-link" to="/login">
                 Login
@@ -66,7 +38,11 @@ const NavHeader = () => (
           style={{ height: "100%", borderRight: 0 }}
         >
           <SubMenu key="sub1" title="Books">
-            <Menu.Item key="1">Add Book</Menu.Item>
+            <Menu.Item key="1">
+              <Link to="/addbook">
+              Add Book
+              </Link>
+              </Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>
