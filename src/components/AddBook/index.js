@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Popup from "reactjs-popup";
 import "./addbook.css";
-//import axios from 'axios';
+import axios from 'axios';
 
 export class AddBook extends Component {
   state = {
@@ -15,12 +15,23 @@ export class AddBook extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  addBook = () => {
-    const { author, title, bookImage } = this.state;
-    const { handleAddbook } = this.props; // parent prop function
-    handleAddbook({ title, author, bookImage }); // call parent prop function
-    console.log("hd:", handleAddbook)
-  };
+  handleAddbook = () => {
+    console.log('handleaddbook: ', this.handleAddbook)
+    const token = localStorage.getItem('accessToken');
+    const { title, author, bookImage } = this.state;
+    console.log("bk::", bookImage)
+    const fd = new FormData();
+    fd.append('bookImage', bookImage);
+    fd.append('title', title);
+    fd.append('author', author);
+    axios.post(process.env.REACT_APP_API_URL + '/books', fd, {
+        headers: {
+            "auth-token": token,
+        },
+
+    })
+       
+}
 
   fileSelectedHandler = (event) => {
     console.log(event.target.files[0]);
@@ -83,7 +94,7 @@ export class AddBook extends Component {
                 </button>
                 <button
                   className="button-save"
-                  onClick={() => this.addBook}
+                  onClick={ this.handleAddbook }
                 >
                   Save
                 </button>

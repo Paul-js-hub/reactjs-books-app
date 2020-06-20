@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Book from '../Book/index';
 import axios from 'axios';
-import AddBook from '../AddBook/index';
 import './books.css'
 
 class Books extends Component {
@@ -36,24 +35,6 @@ class Books extends Component {
     }
 
 
-    handleAddbook = (data) => {
-        const token = localStorage.getItem('accessToken');
-        const { title, author, bookImage } = data;
-        const fd = new FormData();
-        fd.append('bookImage', bookImage);
-        fd.append('title', title);
-        fd.append('author', author);
-        axios.post(process.env.REACT_APP_API_URL + '/books', fd, {
-            headers: {
-                "auth-token": token,
-            },
-
-        })
-            .then(() => {
-                this.fetchBooks();
-            })
-    }
-
     updateBook = (book) => {
         const newBook = { title: book.title }
         axios.put(`process.env.REACT_APP_API_URL/books/${book.id}`, newBook)
@@ -87,9 +68,6 @@ class Books extends Component {
                             onDelete={this.deleteBook}
                         />);
                 })}
-                <AddBook
-                    handleAddbook={this.handleAddbook}
-                />
             </div>)
 
     }
