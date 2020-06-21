@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Popup from "reactjs-popup";
 import "./addbook.css";
-import axios from 'axios';
+import axios from "axios";
+import { toast } from "react-smart-toaster";
 
 export class AddBook extends Component {
   state = {
@@ -16,22 +17,30 @@ export class AddBook extends Component {
   };
 
   handleAddbook = () => {
-    console.log('handleaddbook: ', this.handleAddbook)
-    const token = localStorage.getItem('accessToken');
+    const token = localStorage.getItem("accessToken");
     const { title, author, bookImage } = this.state;
-    console.log("bk::", bookImage)
+    console.log("bk::", bookImage);
     const fd = new FormData();
-    fd.append('bookImage', bookImage);
-    fd.append('title', title);
-    fd.append('author', author);
-    axios.post(process.env.REACT_APP_API_URL + '/books', fd, {
-        headers: {
-            "auth-token": token,
-        },
-
+    fd.append("bookImage", bookImage);
+    fd.append("title", title);
+    fd.append("author", author);
+    axios.post(process.env.REACT_APP_API_URL + "/books", fd, {
+      headers: {
+        "auth-token": token,
+      },
     })
-       
-}
+    .then((response)=>{
+      const message = response.data.message;
+      toast.success(message);
+      if (message === "Your book has been successfully uploaded") {
+        this.props.history.push("/");
+      }
+    })
+    .catch((err)=>{
+      const message = err.response.data.message;
+      toast.error(message);
+    })
+  };
 
   fileSelectedHandler = (event) => {
     console.log(event.target.files[0]);
@@ -92,10 +101,7 @@ export class AddBook extends Component {
                 <button className="btn-close" onClick={close}>
                   Cancel
                 </button>
-                <button
-                  className="button-save"
-                  onClick={ this.handleAddbook }
-                >
+                <button className="button-save" onClick={this.handleAddbook}>
                   Save
                 </button>
               </div>
