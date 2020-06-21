@@ -5,6 +5,7 @@
     margin-right: 600px;
     margin-bottom: 300px;
     padding-left: 72px;
+    width: 50%
 }
 
 
@@ -77,4 +78,10 @@ button.button-save {
     margin-top: 12px;
     display: flex;
     padding: 10px;
+}
+
+.popup-container {
+    border: 1px solid lightgray;
+    margin-left: 165px;
+    margin-right: -50px;
 }
