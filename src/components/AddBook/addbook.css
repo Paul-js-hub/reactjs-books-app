@@ -65,7 +65,7 @@ button.button-save {
 .add-book-input-container {
     display: flex;
     flex-direction: column;
-    margin-right: 8px;
+    margin-right: 21px;
 }
 
 .input-file-wrapper {
