@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import "./addbook.css";
 import axios from "axios";
 import { toast } from "react-smart-toaster";
+import { Button, Form, Input } from 'antd';
 
 export class AddBook extends Component {
   state = {
+    show: "false",
     title: "",
     author: "",
     bookImage: "",
+    setVisible:"false"
   };
 
   onChange = (e) => {
@@ -22,29 +25,34 @@ export class AddBook extends Component {
     fd.append("bookImage", bookImage);
     fd.append("title", title);
     fd.append("author", author);
-    axios
-      .post(process.env.REACT_APP_API_URL + "/books", fd, {
-        headers: {
-          "auth-token": token,
-        },
-      })
-      .then((response) => {
-        const message = response.data.message;
-        toast.success(message);
-        if (message === "Your book has been successfully uploaded") {
-          this.props.history.push("/");
-        }
-      })
-      .catch((err) => {
-        const message = err.response.data.message;
-        toast.error(message);
-      });
+    axios.post(process.env.REACT_APP_API_URL + "/books", fd, {
+      headers: {
+        "auth-token": token,
+      },
+    })
+    .then((response)=>{
+      const message = response.data.message;
+      toast.success(message);
+      if (message === "Your book has been successfully uploaded") {
+        this.props.history.push("/");
+      }
+    })
+    .catch((err)=>{
+      console.log("errrrr:", err.response)
+    })
   };
 
   fileSelectedHandler = (event) => {
     console.log(event.target.files[0]);
     this.setState({ bookImage: event.target.files[0] });
   };
+
+  showModal = () =>{
+    this.setState({ show: "true" });
+  }
+  hideModal =() =>{
+    this.setState({ show: "false" });
+  }
 
   render() {
     return (
@@ -54,20 +62,24 @@ export class AddBook extends Component {
             <h3>Add book</h3>
           </div>
           <div className="add-book-input-container">
-            <input
+            <Form.Item>
+            <Input
               className="add-book-input-details"
               type="text"
               name="title"
               placeholder="Enter the title"
               onChange={(e) => this.onChange(e)}
-            ></input>
-            <input
+            ></Input>
+            </Form.Item>
+            <Form.Item>
+            <Input
               className="add-book-input-details"
               type="text"
               name="author"
               placeholder="Enter the author"
               onChange={(e) => this.onChange(e)}
-            ></input>
+            ></Input>
+            </Form.Item>
           </div>
           <div className="input-file-wrapper">
             <label>Select image:</label>
@@ -80,15 +92,16 @@ export class AddBook extends Component {
             ></input>
           </div>
           <div className="button-group">
-            <button className="btn-close">Cancel</button>
-            <button className="button-save" onClick={this.handleAddbook}>
+            <button onClick={this.hideModal}>Cancel</button>
+            <Button className="button-save" onClick={this.handleAddbook}>
               Save
-            </button>
+            </Button>
           </div>
         </div>
       </div>
     );
   }
 }
+
 
 export default AddBook;
