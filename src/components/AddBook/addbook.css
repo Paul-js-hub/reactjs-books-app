@@ -55,11 +55,9 @@ button.button-save {
     color: white;
 }
 
-.popup-content {
-    margin-left: -25% !important;
-    width: -50% !important;
-    width: 400px !important;
-    background-color: #f0f1f1 !important;
+button.button-save:hover{
+    background: #0095ff;
+    color: white;
 }
 
 .add-book-input-container {

@@ -20,7 +20,7 @@ export class Book extends Component {
           </button>
         </div>
         <EditBook onEdit={this.props.onEdit} id={id} title={title} />
-        <div className="image">
+        <div className="bookimage">
           <img src={bookImage} alt="JavaScript" width="185" height="185" />
         </div>
         <div className="content-title">{title}</div>
