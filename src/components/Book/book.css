@@ -17,12 +17,12 @@
         padding-bottom: 5px;
 }
 
-.image {
+.bookimage {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 49px;
-    padding-top: 24px;
+    padding-left: 66px;
+    padding-top: 32px;
 }
 
 img {

@@ -1,16 +1,13 @@
-button.button-save {
+Button.button-save {
     margin-left: auto;
 }
-.button-group {
-    display: flex;
-    padding: 10px;
-}
-input[type="text"] {
-    margin-top: 30px;
-    margin-left: 10px;
+.Button-group {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
 }
 
-button.btn-edit {
+Button.btn-edit {
     float: right;
     border: none;
     background: white;
@@ -21,3 +18,4 @@ button.btn-edit {
 i.far.fa-edit {
     color: #424242;
 }
+

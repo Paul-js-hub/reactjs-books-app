@@ -3,6 +3,7 @@ import Popup from 'reactjs-popup';
 import './editbook.css';
 import { MDBIcon } from 'mdbreact';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { Button, Form, Input } from "antd";
 
 
 export class EditBook extends Component {
@@ -33,22 +34,25 @@ export class EditBook extends Component {
       <Popup
         trigger=
         {
-          <button className="btn-edit"><MDBIcon far icon="edit" />
-          </button>}
+          <Button className="btn-edit"><MDBIcon far icon="edit" />
+          </Button>}
+          position="bottom right"
           >
         {close => (
           <div>
             <h3>Edit book</h3>
             <div>
-              <input type='text'
+              <Form.Item>
+              <Input type='text'
                 value={title}
                 onChange={(e) => this.onChange(e)}
               >
-              </input>
+              </Input>
+              </Form.Item>
             </div>
-            <div className="button-group">
-              <button className="close" onClick={close} >Cancel</button>
-              <button className="button-save" onClick={() => onEdit({id, title})}>Save</button>
+            <div className="Button-group">
+              <Button className="close" onClick={close} >Cancel</Button>
+              <Button className="Button-save" onClick={() => onEdit({id, title})}>Save</Button>
             </div>
           </div>
         )}
