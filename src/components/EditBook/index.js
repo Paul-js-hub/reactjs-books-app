@@ -35,7 +35,6 @@ export class EditBook extends Component {
         {
           <button className="btn-edit"><MDBIcon far icon="edit" />
           </button>}
-          position="left bottom"
           >
         {close => (
           <div>

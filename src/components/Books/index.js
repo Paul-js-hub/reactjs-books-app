@@ -26,7 +26,6 @@ class Books extends Component {
         )
             .then(res => {
                 this.setState({ books: res.data });
-                console.log('response:', res)
             })
             .catch((error) => {
                 console.log('err: ', error);
@@ -37,7 +36,7 @@ class Books extends Component {
 
     updateBook = (book) => {
         const newBook = { title: book.title }
-        axios.put(`process.env.REACT_APP_API_URL/books/${book.id}`, newBook)
+        axios.put(process.env.REACT_APP_API_URL + `/books/${book.id}`, newBook)
             .then(() => {
                 this.fetchBooks()
             })
