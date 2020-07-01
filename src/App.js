@@ -7,6 +7,7 @@ import Login from "./components/Login/index";
 import { SmartToaster, toast } from 'react-smart-toaster';
 import 'antd/dist/antd.css';
 import AddBook from "./components/AddBook";
+import './App.css';
 
 
 

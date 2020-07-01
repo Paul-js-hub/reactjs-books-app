@@ -54,7 +54,7 @@ class Books extends Component {
     render() {
         const { books } = this.state;
         return (
-            <div className="books-container">{
+            <div className="books-container" >{
                 books.map((book) => {
                     return (
                         <Book
